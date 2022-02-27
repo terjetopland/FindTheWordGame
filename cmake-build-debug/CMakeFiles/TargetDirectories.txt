@@ -1,0 +1,3 @@
+C:/Users/terje/source/repos/findWordGame/cmake-build-debug/CMakeFiles/findWordGame.dir
+C:/Users/terje/source/repos/findWordGame/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/terje/source/repos/findWordGame/cmake-build-debug/CMakeFiles/rebuild_cache.dir
