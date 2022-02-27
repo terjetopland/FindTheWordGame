@@ -7,6 +7,7 @@
 #include <string>
 
 using namespace std;
+
 void PrintHangM(string message, bool printTop, bool printBottom);
 
 #endif //FINDWORDGAME_PRINTMESSAGEHANG_H

@@ -5,17 +5,22 @@
 #include "PrintMessageHang.h"
 #include <iostream>
 
+
+
 void PrintHangM(string message, bool printTop = true, bool printBottom = true) {
     string border_top_bottom = "+-------------------------------+";
-    int width_of_sketch = border_top_bottom.length();
+    int width_of_sketch = (int)border_top_bottom.length();
 
     if(printTop) {
         cout << border_top_bottom << endl;
         cout << "|";
     }
+    else {
+        cout << endl << "|";
+    }
 
     bool front = true;
-    for (int i = message.length(); i < (width_of_sketch-2); ++i) {
+    for (int i = (int)message.length(); i < (width_of_sketch-2); ++i) {
         if (front) {
             message = " " + message;
         } else {
@@ -28,6 +33,9 @@ void PrintHangM(string message, bool printTop = true, bool printBottom = true) {
     if (printBottom){
         cout << "|" << endl;
         cout << border_top_bottom;
+    }
+    else {
+        cout << "|";
     }
 
 }

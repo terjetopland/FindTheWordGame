@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "PrintMessageHang.h"
-
+#include "DrawFigure.h"
 using namespace std;
 
 string correctWord() {
@@ -44,6 +44,8 @@ int main() {
 
     PrintHangM("Hang man", true, true);
 
+
+    DrawFigure(11);
 
 
 
