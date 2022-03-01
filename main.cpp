@@ -25,16 +25,45 @@ string CorrectWord() {
     } return correct_word;
 }
 
-void LoopThroughWord(string to_check, string to_compare_with) {
-
+void LoopThroughWord(string to_check, const string& to_compare_with) {
+    string letters_correct;
+    int count_space{};
 
     for (int i = 0; i < to_check.length(); ++i) {
-        to_compare_with.find(to_check);
+        if(to_check[i] == to_compare_with[i]) {
+            letters_correct += to_check[i];
 
-        cout    << "The " << i+1 << ". letter is correct: "
-                << to_check[i] << endl;
+            cout    << "The " << i+1 << ". letter is correct: "
+                    << to_check[i] << endl
+                    << "Letters correct so far" << endl;
+        }
+        else if(to_check[i] != to_compare_with[i]) {
+
+            for(int j = 0; j <= to_check.length(); j++) {
+
+                if(to_check[i] == to_compare_with[j]){
+
+                    cout    << "The " << i+1 << ". letter is correct" << endl
+                            << "And that letter belongs to place: "
+                            << j+1
+                            << endl
+                            << "And the letter is: "
+                            << to_compare_with[j]
+                            << endl;
+                }
+            }
+        }
+
+
+
+
+
     }
+
+    cout << letters_correct;
 }
+
+
 
 
 
@@ -76,7 +105,7 @@ int main() {
 
     //CheckEqual(CorrectWord());
 
-    LoopThroughWord("Terj", "Terje");
+    LoopThroughWord("Trje", "Terje");
 
 
     //DrawFigure(11);
