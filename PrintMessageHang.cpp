@@ -12,7 +12,7 @@ void PrintHangM(string message, bool printTop = true, bool printBottom = true) {
     int width_of_sketch = (int)border_top_bottom.length();
 
     if(printTop) {
-        cout << border_top_bottom << endl;
+        cout << endl << border_top_bottom << endl;
         cout << "|";
     }
     else {

@@ -1,15 +1,21 @@
 #include <iostream>
 #include <string>
+
 #include "PrintMessageHang.h"
 #include "DrawFigure.h"
+
+#define lenghtCorrectWord 20
+
 
 
 
 using namespace std;
+int count_times_guessed = 0;
+string correct_word;
+
 
 string CorrectWord() {
     char yes_or_no = 'n';
-    string correct_word;
 
     while (yes_or_no != 'y') {
 
@@ -25,75 +31,49 @@ string CorrectWord() {
     } return correct_word;
 }
 
-void LoopThroughWord(string to_check, const string& to_compare_with) {
-    string letters_correct;
-    int count_space{};
-
-    for (int i = 0; i < to_check.length(); ++i) {
-        if(to_check[i] == to_compare_with[i]) {
-            letters_correct += to_check[i];
-
-            cout    << "The " << i+1 << ". letter is correct: "
-                    << to_check[i] << endl
-                    << "Letters correct so far" << endl;
+string LoopThroughWord(const string& to_check, const string& to_compare_with) {
+    string correct_answer_so_far;
+    for (int i = 0; i < to_compare_with.length(); ++i) {
+        if (to_check.find(to_compare_with[i]) == string::npos){
+            correct_answer_so_far += "_";
         }
-        else if(to_check[i] != to_compare_with[i]) {
-
-            for(int j = 0; j <= to_check.length(); j++) {
-
-                if(to_check[i] == to_compare_with[j]){
-
-                    cout    << "The " << i+1 << ". letter is correct" << endl
-                            << "And that letter belongs to place: "
-                            << j+1
-                            << endl
-                            << "And the letter is: "
-                            << to_compare_with[j]
-                            << endl;
-                }
-            }
-        }
-
-
-
-
+        else
+            correct_answer_so_far += to_compare_with[i];
 
     }
 
-    cout << letters_correct;
+    return correct_answer_so_far;
 }
 
 
+int StartGame(const string& correctWord) {
+    string guessed_word;
 
-
-
-int CheckEqual(string correct_word) {
-    string user_word;
-    int count_times_guessed = 0;
     char yes_or_no = 'y';
 
     cout << "Are you ready for a hangman?" << " [y/n]" << endl;
     cin >> yes_or_no;
     cin.clear();
 
-    while (yes_or_no != 'n') {
-        PrintHangM("Hang Man", true, true);
-        cout << endl << "Please enter your guess" << endl;
-        cin >> user_word;
+    PrintHangM("Hang Man", true, true);
+    cout << endl << "Please enter your guess" << endl;
+    cin >> guessed_word;
 
-        while (correct_word != user_word) {
+        while (correctWord != guessed_word) {
             count_times_guessed++;
             PrintHangM("Hang Man", true, true);
             DrawFigure(count_times_guessed);
+            PrintHangM(LoopThroughWord(guessed_word, correctWord), true, true);
             cout << endl <<  "Please try again!" << endl;
-            cin >> user_word;
+            cin >> guessed_word;
 
         }
-        cout << "Congratulations!! You entered correct word" << endl;
-        cout << "You want to play again?" " [y/n]" << endl;
-        cin >> yes_or_no;
+        PrintHangM("Hang Man", true, true);
+        DrawFigure(count_times_guessed-1);
+        PrintHangM(LoopThroughWord(guessed_word, correctWord), true, true);
+        cout << endl << "Congratulations!! You entered correct word" << endl;
         cin.clear();
-    }
+
 
     cout << "Hope to see you again soon";
     return 0;
@@ -101,14 +81,19 @@ int CheckEqual(string correct_word) {
 
 int main() {
 
+    cout << LoopThroughWord("eterj", "terje");
 
 
-    //CheckEqual(CorrectWord());
+  // CorrectWord();
 
-    LoopThroughWord("Trje", "Terje");
+   //StartGame(correct_word);
 
 
-    //DrawFigure(11);
+
+
+
+
+
 
 
 
