@@ -1,13 +1,7 @@
 car
-rent
-snowfall
-ignorance
-house
-cat
-dog
-washing machine
-coding
 git
-clever
-sad
-kind
+snowman
+ice
+nice
+coffee
+good

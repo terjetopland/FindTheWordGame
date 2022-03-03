@@ -4,6 +4,7 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
+#include <limits>
 
 
 #include "PrintMessageHang.h"
@@ -12,25 +13,10 @@
 
 using namespace std;
 int count_times_guessed = 0;
-string correct_word;
 
 
-string CorrectWord() {
-    char yes_or_no = 'n';
 
-    while (yes_or_no != 'y') {
 
-        cout << "Please enter a word for the game" << endl;
-
-        getline(cin, correct_word);
-
-        cout << "You entered: " << correct_word << endl;
-        cout << "Are you sure you will use this word? [y/n]: " << endl;
-        cin >> yes_or_no;
-        getchar();
-
-    } return correct_word;
-}
 
 void StartGame(const string& correctWord) {
     string guessed_word;
@@ -80,14 +66,25 @@ string GetRandomWord(const string& from_file) {
  return word;
 }
 
+void AddCorrectWord(const string& file_here) {
+    ofstream corr_words(file_here, ios::app);
+    if (corr_words.is_open()) {
+        cout << "corr_words is open" << endl;
+        string n_word;
+        cout << "Please enter a new word" << endl;
+        cin >> n_word;
+
+        corr_words << "\n" + n_word;
+        corr_words.close();
+    } else
+        cout << "Couldn't open file" << endl;
+}
+
 int Mmeny() {
     char yes_or_no = 'y';
     cout << "Are you ready for a hangman?" << " [y/n]" << endl;
     cin >> yes_or_no;
     cin.clear();
-    if(yes_or_no == 'y' || yes_or_no == 'Y') {
-        StartGame(GetRandomWord("correctWords.txt"));
-    }
     if ( yes_or_no == 'n' || yes_or_no == 'N')
         return 0;
 
@@ -95,7 +92,10 @@ int Mmeny() {
 }
 int main() {
 
-    Mmeny();
+    //Mmeny();
+    StartGame(GetRandomWord("correctWords.txt"));
+
+    //AddCorrectWord("correctWords.txt");
 
     //CorrectWord();
     //StartGame(GetRandomWord("correctWords.txt"));
