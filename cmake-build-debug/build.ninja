@@ -67,6 +67,12 @@ build CMakeFiles/findWordGame.dir/DrawFigure.cpp.obj: CXX_COMPILER__findWordGame
   OBJECT_DIR = CMakeFiles\findWordGame.dir
   OBJECT_FILE_DIR = CMakeFiles\findWordGame.dir
 
+build CMakeFiles/findWordGame.dir/LoopThroughWord.cpp.obj: CXX_COMPILER__findWordGame_Debug C$:/Users/terje/source/repos/findWordGame/LoopThroughWord.cpp || cmake_object_order_depends_target_findWordGame
+  DEP_FILE = CMakeFiles\findWordGame.dir\LoopThroughWord.cpp.obj.d
+  FLAGS = -g -std=gnu++14
+  OBJECT_DIR = CMakeFiles\findWordGame.dir
+  OBJECT_FILE_DIR = CMakeFiles\findWordGame.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target findWordGame
@@ -75,7 +81,7 @@ build CMakeFiles/findWordGame.dir/DrawFigure.cpp.obj: CXX_COMPILER__findWordGame
 #############################################
 # Link the executable findWordGame.exe
 
-build findWordGame.exe: CXX_EXECUTABLE_LINKER__findWordGame_Debug CMakeFiles/findWordGame.dir/main.cpp.obj CMakeFiles/findWordGame.dir/PrintMessageHang.cpp.obj CMakeFiles/findWordGame.dir/DrawFigure.cpp.obj
+build findWordGame.exe: CXX_EXECUTABLE_LINKER__findWordGame_Debug CMakeFiles/findWordGame.dir/main.cpp.obj CMakeFiles/findWordGame.dir/PrintMessageHang.cpp.obj CMakeFiles/findWordGame.dir/DrawFigure.cpp.obj CMakeFiles/findWordGame.dir/LoopThroughWord.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\findWordGame.dir

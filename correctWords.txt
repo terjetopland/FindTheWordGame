@@ -1,0 +1,13 @@
+car
+rent
+snowfall
+ignorance
+house
+cat
+dog
+washing machine
+coding
+git
+clever
+sad
+kind

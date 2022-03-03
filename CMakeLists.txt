@@ -3,4 +3,4 @@ project(findWordGame)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(findWordGame main.cpp PrintMessageHang.cpp PrintMessageHang.h DrawFigure.cpp DrawFigure.h)
+add_executable(findWordGame main.cpp PrintMessageHang.cpp PrintMessageHang.h DrawFigure.cpp DrawFigure.h LoopThroughWord.cpp LoopThroughWord.h)
