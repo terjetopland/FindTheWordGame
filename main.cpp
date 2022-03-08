@@ -11,9 +11,19 @@
 #include "DrawFigure.h"
 #include "LoopThroughWord.h"
 
-using namespace std;
-int count_times_guessed = 0;
 
+using namespace std;
+int count_times_guessed = 1;
+
+string abc() {
+    string abc;
+    char a = 'a';
+
+    for (int i = 0; i < 26; ++i) {
+        abc += (a+i);
+    }
+    return abc;
+}
 
 
 
@@ -22,23 +32,24 @@ void StartGame(const string& correctWord, const string& header) {
     string guessed_word;
     string last_guessed_word;
     string combined_word;
+    string used_letters;
     int max_guess = 10;
-
 
     PrintHangM(header, true, true);
     cout << endl << "Please enter your guess" << endl;
     getline(cin, guessed_word);
     last_guessed_word = guessed_word;
 
-    if(count_times_guessed <=  max_guess) {
-        while (correctWord != combined_word) {
-
-            cout << combined_word << endl;
+        while (correctWord != combined_word && count_times_guessed < max_guess) {
+            used_letters = LoopThroughWord(guessed_word+used_letters, abc());
+            cout << used_letters << endl;
             count_times_guessed++;
             PrintHangM(header, true, true);
-            DrawFigure(count_times_guessed);
-
-            PrintHangM(LoopThroughWord(combined_word, correctWord), true, true);
+            DrawFigure(count_times_guessed-1);
+            PrintHangM("CORRECT LETTERS", true, false);
+            PrintHangM(LoopThroughWord(combined_word, correctWord), false, true);
+            PrintHangM("USED LETTERS", false, false);
+            PrintHangM(used_letters, false, true);
             cout << endl << "Please try again!" << endl;
             getline(cin, guessed_word);
             last_guessed_word = last_guessed_word + guessed_word;
@@ -46,15 +57,20 @@ void StartGame(const string& correctWord, const string& header) {
 
 
         }
-
+    if (count_times_guessed < max_guess) {
         PrintHangM(header, true, true);
         DrawFigure(count_times_guessed - 1);
         PrintHangM(LoopThroughWord(combined_word, correctWord), true, true);
         cout << endl << "Congratulations!! You entered correct word" << endl;
         cin.clear();
     }
-    else
-        cout << "Sorry, the man is hanging!!" << endl;
+    else {
+
+        PrintHangM(header, true, true);
+        DrawFigure(count_times_guessed +1);
+        PrintHangM("Correct word = " + correctWord, true, true);
+        cout << endl << "Sorry, the man is hanging!!" << endl;
+    }
 }
 
 string GetRandomWord(const string& from_file) {
@@ -108,10 +124,11 @@ int Mmeny() {
 }
 int main() {
 
+    //abc();
     //Mmeny();
     StartGame(GetRandomWord("correctWords.txt"), "Torjus Super hangman");
 
-    AddCorrectWord("correctWords.txt");
+    //AddCorrectWord("correctWords.txt");
 
     //CorrectWord();
     //StartGame(GetRandomWord("correctWords.txt"));
