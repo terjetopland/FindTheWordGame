@@ -8,7 +8,14 @@ good
 sol
 bil
 stol
-Martinius
-Torjus
-Terje
 hello
+assignment4
+blueberry
+pineapple
+bluebox
+cpp
+desinfeksjonswipe
+
+filial
+bool
+ninja

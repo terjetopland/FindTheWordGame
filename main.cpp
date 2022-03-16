@@ -126,9 +126,9 @@ int main() {
 
     //abc();
     //Mmeny();
-    StartGame(GetRandomWord("correctWords.txt"), "Torjus Super hangman");
+    StartGame(GetRandomWord("correctWords.txt"), "Haavard Super hangman");
 
-    //AddCorrectWord("correctWords.txt");
+    AddCorrectWord("correctWords.txt");
 
     //CorrectWord();
     //StartGame(GetRandomWord("correctWords.txt"));
