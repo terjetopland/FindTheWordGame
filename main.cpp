@@ -10,8 +10,8 @@
 #include "LoopThroughWord.h"
 
 using namespace std;
-int count_times_guessed = 1;
 
+//legal characters from a-z
 string abc() {
     string abc;
     char a = 'a';
@@ -28,6 +28,7 @@ void StartGame(const string& correctWord, const string& header) {
     string combined_word;
     string used_letters;
     int max_guess = 10;
+    static int count_times_guessed = 1;
 
     PrintHangM(header, true, true);
     cout << endl << "Please enter your guess" << endl;
@@ -114,10 +115,10 @@ int Mmeny() {
 
 
 }
+
 int main() {
 
     StartGame(GetRandomWord("correctWords.txt"), "Guess the word/words");
-
 
     return 0;
 }
