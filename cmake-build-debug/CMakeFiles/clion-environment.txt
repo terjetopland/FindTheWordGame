@@ -1,4 +1,4 @@
-ToolSet: w64 9.0 (local)@C:\Users\terje\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\mingw
+ToolSet: 17.0 (local)@C:\Program Files\Microsoft Visual Studio\2022\Community
 Options: 
 
 Options:-DCMAKE_MAKE_PROGRAM=C:/Users/terje/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/ninja/win/ninja.exe

@@ -4,13 +4,10 @@
 #include <fstream>
 #include <cstdlib>
 #include <ctime>
-#include <limits>
-
 
 #include "PrintMessageHang.h"
 #include "DrawFigure.h"
 #include "LoopThroughWord.h"
-
 
 using namespace std;
 int count_times_guessed = 1;
@@ -25,9 +22,6 @@ string abc() {
     return abc;
 }
 
-
-
-
 void StartGame(const string& correctWord, const string& header) {
     string guessed_word;
     string last_guessed_word;
@@ -41,8 +35,8 @@ void StartGame(const string& correctWord, const string& header) {
     last_guessed_word = guessed_word;
 
         while (correctWord != combined_word && count_times_guessed < max_guess) {
+            combined_word = LoopThroughWord(last_guessed_word, correctWord);
             used_letters = LoopThroughWord(guessed_word+used_letters, abc());
-            cout << used_letters << endl;
             count_times_guessed++;
             PrintHangM(header, true, true);
             DrawFigure(count_times_guessed-1);
@@ -54,8 +48,6 @@ void StartGame(const string& correctWord, const string& header) {
             getline(cin, guessed_word);
             last_guessed_word = last_guessed_word + guessed_word;
             combined_word = LoopThroughWord(last_guessed_word, correctWord);
-
-
         }
     if (count_times_guessed < max_guess) {
         PrintHangM(header, true, true);
@@ -124,33 +116,7 @@ int Mmeny() {
 }
 int main() {
 
-    //abc();
-    //Mmeny();
-    StartGame(GetRandomWord("correctWords.txt"), "Haavard Super hangman");
-
-    AddCorrectWord("correctWords.txt");
-
-    //CorrectWord();
-    //StartGame(GetRandomWord("correctWords.txt"));
-
-    //cout << GetRandomWord("correctWords.txt");
-
-   /*
-    std::ifstream corr_words;
-    corr_words.open("correctWords.txt");
-
-    if (corr_words.is_open())
-        cout << "File is opened" << endl;
-    */
-
-
-
-
-
-
-
-
-
+    StartGame(GetRandomWord("correctWords.txt"), "Guess the word/words");
 
 
     return 0;
